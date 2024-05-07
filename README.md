@@ -1,4 +1,4 @@
-rules 
+<h1>rules</h1> 
 
 every time you wirte a code, don't forget to commit in your code and your name also write in the commit, for better understanding for other team members.
 
