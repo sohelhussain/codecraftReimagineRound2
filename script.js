@@ -1,5 +1,3 @@
-
-
 // changes by sneha **--- shorthand funstion ----**
 
 const $$ = e = document.createElement();
@@ -13,6 +11,8 @@ const splitText = (element) => {
   });
   text.innerHTML = clutter;
 };
+
+// changes by safi **--- shorthand funstion ----**
 
 
 function locoScroll() {
