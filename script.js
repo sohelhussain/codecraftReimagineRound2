@@ -12,7 +12,7 @@ const splitText = (element) => {
   text.innerHTML = clutter;
 };
 
-// changes by safi **--- shorthand funstion ----**
+// changes by saify **--- shorthand funstion ----**
 
 
 function locoScroll() {
