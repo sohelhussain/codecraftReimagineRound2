@@ -1,4 +1,21 @@
-function name() {
+
+
+// changes by sneha **--- shorthand funstion ----**
+
+const $$ = e = document.createElement();
+const $ = e = document.querySelector();
+
+const splitText = (element) => {
+  const text = document.querySelector(element);
+  let clutter = "";
+  text.textContent.split("").forEach((word) => {
+    clutter += `<span>${word}</span>`;
+  });
+  text.innerHTML = clutter;
+};
+
+
+function locoScroll() {
     gsap.registerPlugin(ScrollTrigger);
     const locoScroll = new LocomotiveScroll({
       el: document.querySelector("#main"),
@@ -21,7 +38,7 @@ function name() {
     ScrollTrigger.refresh();
   }
   
-  name();
+  locoScroll();
   
   Shery.mouseFollower({
     skew: true,
@@ -29,29 +46,4 @@ function name() {
     duration: 1,
   });
   
-  gsap.from("#box1 img", {
-    opacity: 0,
-    x: 500,
-    duration: 1,
-    scrollTrigger: {
-      trigger: "#box1",
-      scroller: "#main", // Adjusted to use LocomotiveScroll container
-      markers: true,
-      start: "top 100%",
-    }
-  });
-  
-  gsap.from("#box2 img", {
-    opacity: 0,
-    x: 500,
-    duration: 1,
-    scrollTrigger: {
-      trigger: "#box2",
-      scroller: "#main", // Adjusted to use LocomotiveScroll container
-      markers: true,
-      start: "top 50%",
-      end:"top 30%",
-      scrub: true 
-    }
-  });
   
