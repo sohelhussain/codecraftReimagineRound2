@@ -47,13 +47,6 @@ Shery.mouseFollower({
 });
 
 // code by sneha
-gsap.from("#main #content .text h1", {
-  y: 200,
-  opacity: 0,
-  stagger: {
-    amount: 1
-  },
-})
 
 document.addEventListener('DOMContentLoaded', (event) => {
   const button = document.querySelector(".button-three");
