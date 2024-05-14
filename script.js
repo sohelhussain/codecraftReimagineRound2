@@ -55,7 +55,7 @@ gsap.from("#main #content .text h1", {
   },
 })
 
-document.addEventListener('DOMContentLoaded', (event) => {
+
   const button = document.querySelector(".button-three");
 
   button.addEventListener("click", () => {
@@ -67,4 +67,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
           button.setAttribute("aria-expanded", "true");
       }
   });
-});
