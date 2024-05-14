@@ -1,7 +1,7 @@
 // changes by sneha **--- shorthand funstion ----**
 
-const $$ = e = document.createElement();
-const $ = e = document.querySelector();
+const $$ = e => document.createElement(e);
+const $ = e => document.querySelector(e);
 
 const splitText = (element) => {
   const text = document.querySelector(element);
@@ -40,24 +40,21 @@ function locoScroll() {
 
 locoScroll();
 
-Shery.mouseFollower({
-  skew: true,
-  ease: "cubic-bezier(0.23, 1, 0.320, 1)",
-  duration: 1,
-});
+// Shery.mouseFollower({
+//   skew: true,
+//   ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+//   duration: 1,
+// });
 
-// code by sneha
+// changes by sohel **--- toggel-btn ----**
 
-document.addEventListener('DOMContentLoaded', (event) => {
-  const button = document.querySelector(".button-three");
+  const button = $(".button-three");
 
   button.addEventListener("click", () => {
       const currentState = button.getAttribute("aria-expanded");
-
       if (currentState === "true") {
           button.setAttribute("aria-expanded", "false");
       } else {
           button.setAttribute("aria-expanded", "true");
       }
   });
-});

@@ -60,8 +60,8 @@ h1 {
     position: absolute;
     top: 50%;
     right: 50%;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
@@ -73,8 +73,8 @@ h1 {
 
 .btn-outline {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     border: 1px solid black;
     border-radius: 50%;
     /* Ensure perfect circle */
@@ -114,13 +114,14 @@ button {
 
 .button-three {
     --button-color: black;
+    overflow: hidden;
 }
 
 /* .button-three .hamburger {
     transition: translate 1s, rotate 1s;
 }
 
-.button-three[aria-expanded="true"] .hamburger {
+.button-three:hover .hamburger {
     translate: 10px -10px;
     rotate: 0.125turn;
 } */
@@ -130,7 +131,7 @@ button {
     stroke-dasharray: 60 31 60 300;
 }
 
-.button-three:hover .line {
+.button-three[aria-expanded="true"] .line {
     stroke-dasharray: 60 105 60 300;
     stroke-dashoffset: -90;
 }
