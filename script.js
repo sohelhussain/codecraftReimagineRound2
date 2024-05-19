@@ -51,10 +51,13 @@ locoScroll();
   const button = $(".button-three");
 
   button.addEventListener("click", () => {
+    console.log("button clicked");
       const currentState = button.getAttribute("aria-expanded");
       if (currentState === "true") {
           button.setAttribute("aria-expanded", "false");
-      } else {
+          $('#toggle-btn').style.transform = 'rotate(0deg)';
+        } else {
+        $('#toggle-btn').style.transform = 'rotate(45deg)';
           button.setAttribute("aria-expanded", "true");
       }
   });
