@@ -94,12 +94,13 @@ h1{
 
 }
 
+
 button {
     background: transparent;
     border: 0 solid var(--button-color, #000);
 }
 
-.button-three {
+/* .button-three {
     --button-color: black;
     overflow: hidden;
 }
@@ -121,8 +122,35 @@ button {
 .button-three[aria-expanded="true"] .line {
     stroke-dasharray: 60 105 60 300;
     stroke-dashoffset: -90;
-}
+} */
 
+
+/* changes by sohel */
+
+.button-three {
+    --button-color: black;
+    overflow: hidden;
+  }
+  
+  .button-three .hamburger {
+    transition: translate 1s, rotate 1s;
+  }
+  
+  .button-three[aria-expanded="true"] .hamburger {
+    translate: 10px -10px;
+    rotate: 0.125turn;
+  }
+  
+  .button-three .line {
+    transition: 1s;
+    stroke-dasharray: 60 31 60 300;
+  }
+  
+  .button-three[aria-expanded="true"] .line {
+    stroke-dasharray: 60 105 60 300;
+    stroke-dashoffset: -90;
+  }
+  
 
 #content {
     padding-left: 15vw;

@@ -46,3 +46,27 @@ Shery.mouseFollower({
   duration: 1,
 });
 
+<<<<<<< HEAD
+=======
+// code by sneha
+gsap.from("#main #content .text h1", {
+  y: 200,
+  opacity: 0,
+  stagger: {
+    amount: 1
+  },
+})
+
+
+  const button = document.querySelector(".button-three");
+
+  button.addEventListener("click", () => {
+      const currentState = button.getAttribute("aria-expanded");
+
+      if (currentState === "true") {
+          button.setAttribute("aria-expanded", "false");
+      } else {
+          button.setAttribute("aria-expanded", "true");
+      }
+  });
+>>>>>>> 85bf25ac1d57b018021b77685ef4f0df08895790
