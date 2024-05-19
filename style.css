@@ -12,10 +12,6 @@ body {
     overflow-x: hidden;
     color: black;
 }
-@font-face {
-    font-family: "mulegh";
-    src: url(fonts/mulegh.woff);
-}
 #main{
     position: relative;
     width: 100%;
@@ -24,16 +20,7 @@ body {
 #container-first {
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to bottom, #FFBDBF, #f9e4e5);
-}
-h1{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 10vw;
-    color: white;
-    font-family: "mulegh";
+    background-color: aqua;
 }
 
 @media (max-width: 640px) {}
