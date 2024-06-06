@@ -51,7 +51,6 @@ locoScroll();
   const button = $(".button-three");
 
   button.addEventListener("click", () => {
-    console.log("button clicked");
       const currentState = button.getAttribute("aria-expanded");
       if (currentState === "true") {
           button.setAttribute("aria-expanded", "false");
@@ -61,3 +60,7 @@ locoScroll();
           button.setAttribute("aria-expanded", "true");
       }
   });
+  gsap.registerPlugin(MorphSVGPlugin) 
+  gsap.to(".top-t-2", {
+    morphSVG:".top-t-3"
+  })

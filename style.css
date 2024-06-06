@@ -160,7 +160,7 @@ h1 {
     font-family: "mulegh";
 }
 
-.hero-svg{
+.hero-svg2{
     /* width: 100vw;
     height: 100vh;
     background-color: #811116; */
@@ -173,21 +173,63 @@ h1 {
     transform: translate(-50%, -50%);
     /* background: gray; */
     width: 30%;
+    /* display: none !important;; */
+    /* opacity: .3; */
 }
-.t{
+.hero-svg2 .t{
     /* position: relative;
     left: -10%; */
     margin-right: 5%;
     display: inline-block;
 }
-.top-t{
+.hero-svg2 .top-t{
     position: absolute;
     top: 7%;
     left: -6%;
 }
-.mid-a{
+.hero-svg2 .top-t .top-t-2{
+    /* opacity: .3; */
+}
+.hero-svg2 .top-t .top-t-3{
+    /* opacity: .2; */
+    visibility: hidden;
+}
+.hero-svg2 .mid-a{
     position: absolute;
     top: 12%;
+    left: 46%;
+    transform: translate(-50%,0%);
+    background-color: transparent;
+}
+.hero-svg3{
+    /* width: 100vw;
+    height: 100vh;
+    background-color: #811116; */
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background: gray; */
+    width: 30%;
+    display: none !important;
+}
+.hero-svg3 .t{
+    /* position: relative;
+    left: -10%; */
+    margin-right: 5%;
+    display: inline-block;
+}
+.hero-svg3 .top-t{
+    position: absolute;
+    top: 7%;
+    left: -6%;
+}
+.hero-svg3 .mid-a{
+    position: absolute;
+    top: 15%;
     left: 46%;
     transform: translate(-50%,0%);
     background-color: transparent;
