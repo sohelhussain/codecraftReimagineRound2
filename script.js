@@ -46,21 +46,109 @@ locoScroll();
 //   duration: 1,
 // });
 
-// changes by sohel **--- toggel-btn ----**
+function clut(){
+  const canvas = document.querySelector("canvas");
+const context = canvas.getContext("2d");
 
-  const button = $(".button-three");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-  button.addEventListener("click", () => {
-      const currentState = button.getAttribute("aria-expanded");
-      if (currentState === "true") {
-          button.setAttribute("aria-expanded", "false");
-          $('#toggle-btn').style.transform = 'rotate(0deg)';
-        } else {
-        $('#toggle-btn').style.transform = 'rotate(45deg)';
-          button.setAttribute("aria-expanded", "true");
-      }
-  });
-  gsap.registerPlugin(MorphSVGPlugin) 
-  gsap.to(".top-t-2", {
-    morphSVG:".top-t-3"
-  })
+
+window.addEventListener("resize", function () {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  render();
+});
+
+function files(index) {
+  var data = `
+    images/1.jpg
+    images/2.jpg
+    images/3.jpg
+    images/4.jpg
+    images/5.jpg
+    images/6.jpg
+    images/7.jpg
+    images/8.jpg
+    images/9.jpg
+    images/10.jpg
+    images/11.jpg
+    images/12.jpg
+    images/13.jpg
+    images/14.jpg
+    images/15.jpg
+    images/16.jpg
+    images/17.jpg
+    images/18.jpg
+    images/19.jpg
+    images/20.jpg
+ `;
+  return data.split("\n")[index];
+}
+
+const frameCount = 300;
+
+const images = [];
+const imageSeq = {
+  frame: 1,
+};
+
+for (let i = 0; i < frameCount; i++) {
+  const img = new Image();
+  img.src = files(i);
+  images.push(img);
+}
+
+gsap.to(imageSeq, {
+  frame: frameCount - 1,
+  snap: "frame",
+  ease: `none`,
+  scrollTrigger: {
+    scrub: 0.15,
+    trigger: `#container-first>canvas`,
+    //   set start end according to preference
+    start: `top top`,
+    end: `600% top`,
+    scroller: `#main`,
+  },
+  onUpdate: render,
+});
+
+images[1].onload = render;
+
+function render() {
+  scaleImage(images[imageSeq.frame], context);
+}
+
+function scaleImage(img, ctx) {
+  var canvas = ctx.canvas;
+  var hRatio = canvas.width / img.width;
+  var vRatio = canvas.height / img.height;
+  var ratio = Math.max(hRatio, vRatio);
+  var centerShift_x = (canvas.width - img.width * ratio) / 2;
+  var centerShift_y = (canvas.height - img.height * ratio) / 2;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(
+    img,
+    0,
+    0,
+    img.width,
+    img.height,
+    centerShift_x,
+    centerShift_y,
+    img.width * ratio,
+    img.height * ratio
+  );
+}
+ScrollTrigger.create({
+
+  trigger: "#container-first",
+  pin: true,
+  markers:true,
+  scroller: `#main`,
+//   set start end according to preference
+  start: `top top`,
+  end: `100% top`,
+});
+}
+clut();
