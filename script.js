@@ -152,3 +152,9 @@ ScrollTrigger.create({
 });
 }
 clut();
+
+gsap.to('.page1',{
+  width: '100%',
+  height: '100%',
+  opacity: 1,
+})
