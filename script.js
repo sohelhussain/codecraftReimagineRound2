@@ -1,4 +1,4 @@
-// changes by sneha **--- shorthand funstion ----**
+// changes by sohel **--- shorthand function ----**
 
 const $$ = e => document.createElement(e);
 const $ = e => document.querySelector(e);
@@ -12,7 +12,7 @@ const splitText = (element) => {
   text.innerHTML = clutter;
 };
 
-// changes by saify **--- shorthand funstion ----**
+// changes by saify **--- locomotive ----**
 
 
 function locoScroll() {
@@ -45,6 +45,11 @@ locoScroll();
 //   ease: "cubic-bezier(0.23, 1, 0.320, 1)",
 //   duration: 1,
 // });
+
+
+
+// code by sohel **--- hero text animation ----**
+
 
 function clut(){
   const canvas = document.querySelector("canvas");
@@ -144,7 +149,7 @@ ScrollTrigger.create({
 
   trigger: "#container-first",
   pin: true,
-  markers:true,
+  // markers:true,
   scroller: `#main`,
 //   set start end according to preference
   start: `top top`,
@@ -153,8 +158,114 @@ ScrollTrigger.create({
 }
 clut();
 
+
+
+// code by sneha **--- nav bar ----**
+
+
+function nav(){
+  // Setup the timeline
+const tl = gsap.timeline({ paused: true });
+let path = document.querySelector("path");
+let spanBefore = CSSRulePlugin.getRule("#hamburger span::before");
+
+// Set initial states
+gsap.set(spanBefore, { background: "#000" });
+gsap.set(".menu", { visibility: "hidden" });
+
+// Function to toggle the menu
+function revealMenu() {
+    revealMenuItems();
+
+    const hamburger = document.getElementById("hamburger");
+    const toggleBtn = document.getElementById("toggle-btn");
+
+    toggleBtn.onclick = function () {
+        hamburger.classList.toggle("active");
+        tl.reversed(!tl.reversed());
+    };
+}
+
+// Function to reveal menu items
+function revealMenuItems() {
+    const start = "M0 502S175 272 500 272s500 230 500 230V0H0Z";
+    const end = "M0 1005S175, 995, 500, 995s500, 5, 500, 5V0H0Z";
+
+    const power2 = "power2.inOut";
+    const power4 = "power4.inOut";
+
+    tl.to("#hamburger", {
+        duration: 1.25,
+        marginTop: "-5px",
+        x: -40,
+        y: 40,
+        ease: power4,
+    });
+
+    tl.to("#hamburger span", {
+        duration: 1,
+        background: "#e2e2dc",
+        ease: power2,
+    }, "<");
+
+    tl.to(spanBefore, {
+        duration: 1,
+        background: "#e2e2dc",
+        ease: power2,
+    }, "<");
+
+    tl.to(".btn-outline", {
+        duration: 1.25,
+        x: -40,
+        y: 40,
+        width: "140px",
+        height: "140px",
+        border: "1px solid #e2e2dc",
+        ease: power4,
+    }, "<");
+
+    tl.to(path, {
+        duration: 0.8,
+        attr: { d: start },
+        ease: power2,
+    }).to(path, {
+        duration: 0.8,
+        attr: { d: end },
+        ease: power2,
+    }, "-=0.5");
+
+    tl.to(".menu", {
+        duration: 1,
+        visibility: "visible",
+    }, "-=0.5");
+
+    tl.to(".menu-item > a", {
+        duration: 1,
+        top: 0,
+        ease: "power3.out",
+        stagger: { amount: 0.5 },
+    }, "-=1").reverse();
+}
+
+// Initialize the menu reveal functionality
+revealMenu();
+
+}
+nav();
+
+// code by sohel **--- page1 animation ----**
+//page 1 
+
 gsap.to('.page1',{
   width: '100%',
   height: '100%',
-  opacity: 1,
+  opacity: .1,
+  scrollTrigger: {
+    trigger: ".page1",
+    scroller: "#main",
+    start: "-20% top",
+    end: "50% 0%",
+    // markers: true,
+    scrub: 1,
+  },
 })

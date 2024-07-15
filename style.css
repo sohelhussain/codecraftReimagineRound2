@@ -25,7 +25,7 @@ body {
 #container-first {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(to bottom, #ffbdbf, #f9e4e5);
+  /* background: linear-gradient(to bottom, #ffbdbf, #f9e4e5); */
   overflow-x: hidden;
 }
 #canvas {
@@ -41,8 +41,195 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0.5;
-  width: 30%;
-  height: 30%;
+  opacity: 0.1;
+  width: 10%;
+  height: 10%;
   background-color: red;
+}
+
+
+
+ /* nav code  */
+
+
+ .overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+svg path {
+  fill: var(--overlay-bg);
+}
+
+#toggle-btn {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.btn-outline {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 1px solid var(--overlay-bg);
+  z-index: 99;
+}
+
+.btn-outline-1 {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: morph 4s linear infinite;
+}
+
+.btn-outline-2 {
+  border-radius: 53% 47% 43% 57% / 51% 39% 61% 49%;
+}
+
+@keyframes morph {
+  0% {
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  50% {
+      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+
+  100% {
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+#hamburger {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+}
+
+#hamburger span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  width: 24px;
+  height: 1.25px;
+  background: var(--overlay-bg);
+  transition: transform 0.25s;
+}
+
+#hamburger span::before {
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  content: "";
+  width: 18px;
+  height: 1.25px;
+  background-color: var(--overlay-bg);
+  transform: translateY(-4px);
+  transition: transform 0.25s;
+}
+
+#hamburger.active span {
+  transform: rotate(45deg);
+}
+
+#hamburger.active span::before {
+  top: 0;
+  width: 24px;
+  transform: rotate(-90deg);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  visibility: hidden;
+}
+
+.menu>div {
+  height: 100%;
+  display: flex;
+}
+
+.menu a {
+  position: relative;
+  top: 120px;
+  line-height: 70%;
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+.menu a span {
+  font-size: 20px;
+  margin-right: 2em;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.menu-item {
+  position: relative;
+}
+
+.menu-item:after {
+  content: "";
+  position: absolute;
+  top: 100px;
+  left: -20px;
+  width: 120%;
+  height: 200%;
+  background: var(--overlay-bg);
+  margin: 0 auto;
+}
+
+.menu-container {
+  width: 70%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.primary-menu {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary-menu .menu-container .wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.primary-menu a {
+  text-transform: uppercase;
+  font-size: 125px;
+  font-weight: 500;
+}
+
+.primary-menu .menu-container .wrapper .menu-item:nth-child(1) a,
+.primary-menu .menu-container .wrapper .menu-item:nth-child(3) a {
+  margin-left: 1em;
+}
+
+.container-second{
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, #ffbdbf, #f9e4e5);
+  overflow-x: hidden;
 }
