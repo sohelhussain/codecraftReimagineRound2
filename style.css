@@ -69,11 +69,10 @@ svg path {
 .cover{
   /* width: 50%;
   height: 50%; */
-  position: relative;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-  /* background-color: green; */
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  z-index: 555;
 }
 #toggle-btn {
   /* position: absolute;
@@ -96,6 +95,7 @@ svg path {
   width: 70px;
   height: 70px;
   border: 1px solid black;
+  z-index: 3;
   border-radius: 50%;
   /* Ensure perfect circle */
 }

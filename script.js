@@ -163,7 +163,38 @@ clut();
 // code by sneha **--- nav bar ----**
 
 
+
+
+
 function nav(){
+
+
+  const button = $(".button-three");
+
+  button.addEventListener("click", () => {
+      const currentState = button.getAttribute("aria-expanded");
+      // revealMenuItems();
+      if (currentState === "true") {
+          button.setAttribute("aria-expanded", "false");
+          $('#toggle-btn').style.transform = 'rotate(0deg)';
+        } else {
+        $('#toggle-btn').style.transform = 'rotate(45deg)';
+          button.setAttribute("aria-expanded", "true");
+      }
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
   // Setup the timeline
 const tl = gsap.timeline({ paused: true });
 let path = document.querySelector("path");
@@ -175,13 +206,14 @@ gsap.set(".menu", { visibility: "hidden" });
 
 // Function to toggle the menu
 function revealMenu() {
-    revealMenuItems();
+    
 
     const hamburger = document.getElementById("hamburger");
-    const toggleBtn = document.getElementById("toggle-btn");
+    const toggleBtn = $(".cover");
 
     toggleBtn.onclick = function () {
-        hamburger.classList.toggle("active");
+      console.log("toggle");
+        // hamburger.classList.toggle("active");
         tl.reversed(!tl.reversed());
     };
 }
@@ -194,19 +226,19 @@ function revealMenuItems() {
     const power2 = "power2.inOut";
     const power4 = "power4.inOut";
 
-    tl.to("#hamburger", {
-        duration: 1.25,
-        marginTop: "-5px",
-        x: -40,
-        y: 40,
-        ease: power4,
-    });
+    // tl.to("#hamburger", {
+    //     duration: 1.25,
+    //     marginTop: "-5px",
+    //     x: -40,
+    //     y: 40,
+    //     ease: power4,
+    // });
 
-    tl.to("#hamburger span", {
-        duration: 1,
-        background: "#e2e2dc",
-        ease: power2,
-    }, "<");
+    // tl.to("#hamburger span", {
+    //     duration: 1,
+    //     background: "#e2e2dc",
+    //     ease: power2,
+    // }, "<");
 
     tl.to(spanBefore, {
         duration: 1,
@@ -214,15 +246,15 @@ function revealMenuItems() {
         ease: power2,
     }, "<");
 
-    tl.to(".btn-outline", {
-        duration: 1.25,
-        x: -40,
-        y: 40,
-        width: "140px",
-        height: "140px",
-        border: "1px solid #e2e2dc",
-        ease: power4,
-    }, "<");
+    // tl.to(".btn-outline", {
+    //     duration: 1.25,
+    //     x: -40,
+    //     y: 40,
+    //     width: "140px",
+    //     height: "140px",
+    //     border: "1px solid #e2e2dc",
+    //     ease: power4,
+    // }, "<");
 
     tl.to(path, {
         duration: 0.8,
