@@ -13,13 +13,56 @@
   </head>
 
   <body>
+
+      <div class="cover">
+            <div class="btn" id="toggle-btn">
+              <div class="btn-outline btn-outline-1"></div>
+              <div class="btn-svg">
+                <button
+                  class="button-three"
+                  aria-controls="primary-navigation"
+                  aria-expanded="false"
+                >
+                  <svg
+                    stroke="var(--button-color)"
+                    fill="none"
+                    class="hamburger"
+                    viewBox="-10 -10 120 120"
+                    width="40"
+                  >
+                    <path
+                      class="line"
+                      stroke-width="4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m 20 40 h 60 a 1 1 0 0 1 0 20 h -60 a 1 1 0 0 1 0 -40 h 30 v 70"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="btn-outline btn-outline-2"></div>
+            </div>
+          </div>
+          <nav>
+            <div class="upp-box tilt"><h1 class="nav-hed">DESTINATIONS</h1></div>
+            <div class="upp-box tilt"><h1 class="nav-hed">HOTELS</h1></div>
+            <div class="upp-box tilt"><h1 class="nav-hed">DINING</h1></div>
+            <div class="upp-box tilt"><h1 class="nav-hed">MEMBERSHIPS</h1></div>
+          </nav>
+
     <div id="main">
-      <section id="container-first">
-          <canvas id="canvas"></canvas>
-      </section>
+      <div id="container-first">
+        
+        <canvas id="canvas"></canvas>
+        <div class="page1"></div>
+      </div>
+      <div id="container-second">
+       <canvas id="make-partical"></canvas> 
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/CSSRulePlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
