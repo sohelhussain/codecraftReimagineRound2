@@ -180,6 +180,7 @@ const navbar = (e) => {
         ease: "power2.inOut",
       });
       tim.to(".upp-box>h1", {
+        opacity: 1,
         y: "0%",
         esae: "power4.inOut",
       });
@@ -187,6 +188,7 @@ const navbar = (e) => {
     } else {
       tim.to(".upp-box>h1", {
         y: "-100%",
+        opacity: 0,
         esae: "power4.inOut",
       });
       tim.to("nav", {
@@ -358,4 +360,99 @@ const makeParticals = (e) => {
   };
   animate();
 };
-makeParticals();
+// makeParticals();
+
+
+const containerThird = e => {
+  const t1 = gsap.timeline();
+  t1.from(
+    ".page2-elem1",
+    1,
+    {
+      y: 190,
+      scrollTrigger: {
+        scroller: ".main",
+        trigger: ".page2-elem1",
+        start: "top 40%", // Adjust this value based on your layout
+        end: "top 10%",
+        //   pin: true,
+        scrub: 1,
+        //   markers: true,
+      },
+    },
+    0
+  );
+  
+  t1.from(
+    ".page2-elem2",
+    1,
+    {
+      x: 190,
+      scrollTrigger: {
+        scroller: ".main",
+        trigger: ".page2-elem1",
+        start: "top 50%", // Adjust this value based on your layout
+        end: "top 10%",
+        //   pin: true,
+        scrub: 1,
+        //   markers: true,
+      },
+    },
+    0
+  );
+  
+  t1.from(
+    ".page2-elem4",
+    1,
+    {
+      x: -190,
+      scrollTrigger: {
+        scroller: ".main",
+        trigger: ".page2-elem1",
+        start: "top 50%", // Adjust this value based on your layout
+        end: "top 10%",
+        //   pin: true,
+        scrub: 1,
+        //   markers: true,
+      },
+    },
+    0
+  );
+  
+  t1.from(
+    ".page2-elem5,.page2-elem6",
+    1,
+    {
+      y: -190,
+      scrollTrigger: {
+        scroller: ".main",
+        trigger: ".page2-elem1",
+        start: "top 50%", // Adjust this value based on your layout
+        end: "top 10%",
+        //   pin: true,
+        scrub: 1,
+        //   markers: true,
+      },
+    },
+    0
+  );
+  
+  t1.to(
+    ".page2-elem3",
+  
+    {
+      height: "100vh",
+      width: "100vw",
+      scrollTrigger: {
+        scroller: ".main",
+        trigger: ".page2",
+        start: "top 0%", // Adjust this value based on your layout
+        end: "top -100%",
+        pin: true,
+        scrub: 1,
+        // markers: true,
+      },
+    }
+  );
+}
+// containerThird();
