@@ -259,6 +259,28 @@ gsap.to(".page1", {
   },
 });
 
+
+// code by sohel **--- page2 video animation ----**
+//page 2
+
+
+gsap.to(".video-box", {
+  width: "100%",
+  scrollTrigger: {
+    trigger: "#conatainer-second",
+    scroller: "#main",
+    start: "200% 70%",
+    end: "200% 0%",
+    // markers: true,
+    scrub: 1,
+  },
+});
+
+
+
+// code by sohel **--- page3 partical-line animation ----**
+//page 3
+
 const makeParticals = (e) => {
   const canvas = document.querySelector("#make-partical");
   const ctx = canvas.getContext("2d");
@@ -360,99 +382,203 @@ const makeParticals = (e) => {
   };
   animate();
 };
-// makeParticals();
+makeParticals();
 
+const forth = e => {
+  var tl = gsap.timeline({scrollTrigger : {
+    trigger : "#main",
+    start : "38% 50%",
+    end : "100% 50%",
+    pin : true, 
+    scrub : 2
+}})
+
+tl
+.to("#text", {
+    top : "-7%"
+}, "a")
+
+.to("#cardone", {
+    top : "35%"
+}, "a")
+
+.to("#cardsec", {
+    top : "100%"
+}, "a")
+
+
+
+
+.to("#cardsec", {
+    top : "42%"
+}, "b")
+
+.to("#cardone", {
+    width : "65%",
+    height : "65vh"
+}, "b")
+
+.to("#cardthird", {
+    top : "100%"
+}, "b")
+
+
+
+
+.to("#cardsec", {
+    width : "70%",
+    height : "70vh"
+}, "c")
+
+.to("#cardthird", {
+    top : "50%"
+}, "c")
+
+}
+// forth()
 
 const containerThird = e => {
   const t1 = gsap.timeline();
-  t1.from(
+  t1.to(
     ".page2-elem1",
     1,
     {
       y: 190,
       scrollTrigger: {
-        scroller: ".main",
+        scroller: "#main",
         trigger: ".page2-elem1",
         start: "top 40%", // Adjust this value based on your layout
         end: "top 10%",
         //   pin: true,
         scrub: 1,
-        //   markers: true,
-      },
-    },
-    0
-  );
-  
-  t1.from(
-    ".page2-elem2",
-    1,
-    {
-      x: 190,
-      scrollTrigger: {
-        scroller: ".main",
-        trigger: ".page2-elem1",
-        start: "top 50%", // Adjust this value based on your layout
-        end: "top 10%",
-        //   pin: true,
-        scrub: 1,
-        //   markers: true,
-      },
-    },
-    0
-  );
-  
-  t1.from(
-    ".page2-elem4",
-    1,
-    {
-      x: -190,
-      scrollTrigger: {
-        scroller: ".main",
-        trigger: ".page2-elem1",
-        start: "top 50%", // Adjust this value based on your layout
-        end: "top 10%",
-        //   pin: true,
-        scrub: 1,
-        //   markers: true,
-      },
-    },
-    0
-  );
-  
-  t1.from(
-    ".page2-elem5,.page2-elem6",
-    1,
-    {
-      y: -190,
-      scrollTrigger: {
-        scroller: ".main",
-        trigger: ".page2-elem1",
-        start: "top 50%", // Adjust this value based on your layout
-        end: "top 10%",
-        //   pin: true,
-        scrub: 1,
-        //   markers: true,
+          markers: true,
       },
     },
     0
   );
   
   t1.to(
+    ".page2-elem2",
+    1,
+    {
+      x: 190,
+      scrollTrigger: {
+        scroller: "#main",
+        trigger: ".page2-elem1",
+        start: "top 50%", // Adjust this value based on your layout
+        end: "top 10%",
+        //   pin: true,
+        scrub: 1,
+          markers: true,
+      },
+    },
+    0
+  );
+  
+  t1.to(
+    ".page2-elem4",
+    1,
+    {
+      x: -190,
+      scrollTrigger: {
+        scroller: "#main",
+        trigger: ".page2-elem1",
+        start: "top 50%", // Adjust this value based on your layout
+        end: "top 10%",
+        //   pin: true,
+        scrub: 1,
+          markers: true,
+      },
+    },
+    0
+  );
+  
+  t1.to(
+    ".page2-elem5,.page2-elem6",
+    1,
+    {
+      y: -190,
+      scrollTrigger: {
+        scroller: "#main",
+        trigger: ".page2-elem1",
+        start: "top 50%", // Adjust this value based on your layout
+        end: "top 10%",
+        //   pin: true,
+        scrub: 1,
+          markers: true,
+      },
+    },
+    0
+  );
+  
+  t1.form(
     ".page2-elem3",
   
     {
       height: "100vh",
       width: "100vw",
       scrollTrigger: {
-        scroller: ".main",
+        scroller: "#main",
         trigger: ".page2",
         start: "top 0%", // Adjust this value based on your layout
         end: "top -100%",
         pin: true,
         scrub: 1,
-        // markers: true,
+        markers: true,
       },
     }
   );
 }
 // containerThird();
+
+const containerFore = e => {
+  var tl = gsap.timeline({scrollTrigger : {
+    trigger : "#container-fore",
+    start : "38% 50%",
+    end : "100% 50%",
+    pin : true, 
+    scrub : 2
+}})
+
+tl
+.to("#text", {
+    top : "-7%"
+}, "a")
+
+.to("#cardone", {
+    top : "35%"
+}, "a")
+
+.to("#cardsec", {
+    top : "100%"
+}, "a")
+
+
+
+
+.to("#cardsec", {
+    top : "42%"
+}, "b")
+
+.to("#cardone", {
+    width : "65%",
+    height : "65vh"
+}, "b")
+
+.to("#cardthird", {
+    top : "100%"
+}, "b")
+
+
+
+
+.to("#cardsec", {
+    width : "70%",
+    height : "70vh"
+}, "c")
+
+.to("#cardthird", {
+    top : "50%"
+}, "c")
+}
+containerFore();
