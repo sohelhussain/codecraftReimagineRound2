@@ -1,37 +1,45 @@
 // changes by sohel **--- shorthand function ----**
 
-const $$ = e => document.createElement(e);
-const $ = e => document.querySelector(e);
+const $$ = (e) => document.createElement(e);
+const $ = (e) => document.querySelector(e);
 
-const splitText = (element) => {
-  const text = document.querySelector(element);
-  let clutter = "";
-  text.textContent.split("").forEach((word) => {
-    clutter += `<span>${word}</span>`;
-  });
-  text.innerHTML = clutter;
-};
+// const splitText = (element) => {
+//   const text = document.querySelector(element);
+//   let clutter = "";
+//   text.textContent.split("").forEach((word) => {
+//     clutter += `<span>${word}</span>`;
+//   });
+//   text.innerHTML = clutter;
+// };
 
 // changes by saify **--- locomotive ----**
-
 
 function locoScroll() {
   gsap.registerPlugin(ScrollTrigger);
   const locoScroll = new LocomotiveScroll({
     el: document.querySelector("#main"),
-    smooth: true
+    smooth: true,
   });
 
   locoScroll.on("scroll", ScrollTrigger.update);
 
   ScrollTrigger.scrollerProxy("#main", {
     scrollTop(value) {
-      return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+      return arguments.length
+        ? locoScroll.scrollTo(value, 0, 0)
+        : locoScroll.scroll.instance.scroll.y;
     },
     getBoundingClientRect() {
-      return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+      return {
+        top: 0,
+        left: 0,
+        width: window.innerWidth,
+        height: window.innerHeight,
+      };
     },
-    pinType: document.querySelector("#main").style.transform ? "transform" : "fixed"
+    pinType: document.querySelector("#main").style.transform
+      ? "transform"
+      : "fixed",
   });
 
   ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
@@ -46,27 +54,23 @@ locoScroll();
 //   duration: 1,
 // });
 
-
-
 // code by sohel **--- hero text animation ----**
 
-
-function clut(){
+function clut() {
   const canvas = document.querySelector("canvas");
-const context = canvas.getContext("2d");
+  const context = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-
-window.addEventListener("resize", function () {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  render();
-});
 
-function files(index) {
-  var data = `
+  window.addEventListener("resize", function () {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    render();
+  });
+
+  function files(index) {
+    var data = `
     images/1.jpg
     images/2.jpg
     images/3.jpg
@@ -88,210 +92,161 @@ function files(index) {
     images/19.jpg
     images/20.jpg
  `;
-  return data.split("\n")[index];
-}
+    return data.split("\n")[index];
+  }
 
-const frameCount = 300;
+  const frameCount = 300;
 
-const images = [];
-const imageSeq = {
-  frame: 1,
-};
+  const images = [];
+  const imageSeq = {
+    frame: 1,
+  };
 
-for (let i = 0; i < frameCount; i++) {
-  const img = new Image();
-  img.src = files(i);
-  images.push(img);
-}
+  for (let i = 0; i < frameCount; i++) {
+    const img = new Image();
+    img.src = files(i);
+    images.push(img);
+  }
 
-gsap.to(imageSeq, {
-  frame: frameCount - 1,
-  snap: "frame",
-  ease: `none`,
-  scrollTrigger: {
-    scrub: 0.15,
-    trigger: `#container-first>canvas`,
+  gsap.to(imageSeq, {
+    frame: frameCount - 1,
+    snap: "frame",
+    ease: `none`,
+    scrollTrigger: {
+      scrub: 0.15,
+      trigger: `#container-first>canvas`,
+      //   set start end according to preference
+      start: `top top`,
+      end: `600% top`,
+      scroller: `#main`,
+    },
+    onUpdate: render,
+  });
+
+  images[1].onload = render;
+
+  function render() {
+    scaleImage(images[imageSeq.frame], context);
+  }
+
+  function scaleImage(img, ctx) {
+    var canvas = ctx.canvas;
+    var hRatio = canvas.width / img.width;
+    var vRatio = canvas.height / img.height;
+    var ratio = Math.max(hRatio, vRatio);
+    var centerShift_x = (canvas.width - img.width * ratio) / 2;
+    var centerShift_y = (canvas.height - img.height * ratio) / 2;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(
+      img,
+      0,
+      0,
+      img.width,
+      img.height,
+      centerShift_x,
+      centerShift_y,
+      img.width * ratio,
+      img.height * ratio
+    );
+  }
+  ScrollTrigger.create({
+    trigger: "#container-first",
+    pin: true,
+    // markers:true,
+    scroller: `#main`,
     //   set start end according to preference
     start: `top top`,
-    end: `600% top`,
-    scroller: `#main`,
-  },
-  onUpdate: render,
-});
-
-images[1].onload = render;
-
-function render() {
-  scaleImage(images[imageSeq.frame], context);
-}
-
-function scaleImage(img, ctx) {
-  var canvas = ctx.canvas;
-  var hRatio = canvas.width / img.width;
-  var vRatio = canvas.height / img.height;
-  var ratio = Math.max(hRatio, vRatio);
-  var centerShift_x = (canvas.width - img.width * ratio) / 2;
-  var centerShift_y = (canvas.height - img.height * ratio) / 2;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(
-    img,
-    0,
-    0,
-    img.width,
-    img.height,
-    centerShift_x,
-    centerShift_y,
-    img.width * ratio,
-    img.height * ratio
-  );
-}
-ScrollTrigger.create({
-
-  trigger: "#container-first",
-  pin: true,
-  // markers:true,
-  scroller: `#main`,
-//   set start end according to preference
-  start: `top top`,
-  end: `100% top`,
-});
+    end: `100% top`,
+  });
 }
 clut();
 
-
-
 // code by sneha **--- nav bar ----**
 
-
-
-
-
-function nav(){
-
-
+const navbar = (e) => {
   const button = $(".button-three");
 
-  button.addEventListener("click", () => {
-      const currentState = button.getAttribute("aria-expanded");
-      // revealMenuItems();
-      if (currentState === "true") {
-          button.setAttribute("aria-expanded", "false");
-          $('#toggle-btn').style.transform = 'rotate(0deg)';
-        } else {
-        $('#toggle-btn').style.transform = 'rotate(45deg)';
-          button.setAttribute("aria-expanded", "true");
-      }
+  const tim = gsap.timeline();
+
+  let flage = true;
+  button.addEventListener("click", (e) => {
+    if (flage) {
+      tim.to("nav", {
+        width: "100%",
+        height: "100%",
+        top: "0%",
+        left: "0%",
+        borderRadius: "0%",
+        ease: "power2.inOut",
+      });
+      tim.to(".upp-box>h1", {
+        y: "0%",
+        esae: "power4.inOut",
+      });
+      flage = false;
+    } else {
+      tim.to(".upp-box>h1", {
+        y: "-100%",
+        esae: "power4.inOut",
+      });
+      tim.to("nav", {
+        width: "0%",
+        height: "0%",
+        top: "130%",
+        left: "-30%",
+        borderRadius: "100%",
+        ease: "power2.inOut",
+      });
+      flage = true;
+    }
   });
 
+  button.addEventListener("click", () => {
+    const currentState = button.getAttribute("aria-expanded");
+    if (currentState === "true") {
+      button.setAttribute("aria-expanded", "false");
+      $("#toggle-btn").style.transform = "rotate(0deg)";
+    } else {
+      $("#toggle-btn").style.transform = "rotate(45deg)";
+      button.setAttribute("aria-expanded", "true");
+    }
+  });
 
+  function skill() {
+    var txt = document.querySelectorAll(".nav-hed");
+    txt.forEach(function (h2) {
+      var clutter2 = "";
+      h2.textContent.split("").forEach(function (letter) {
+        clutter2 += `<span>${letter}</span>`;
+      });
+      h2.innerHTML = clutter2;
 
+      h2.addEventListener("mousemove", function () {
+        gsap.to("nav", {
+          backgroundColor: "rgb(18, 18, 18)",
+          duration: .3,
+        });
+      });
+      h2.addEventListener("mouseleave", function () {
+        gsap.to("nav", {
+          backgroundColor: "aliceblue",
+          duration: .3,
+        });
+      });
+    });
+  }
+  skill();
+};
 
-
-
-
-
-
-
-
-
-
-  // Setup the timeline
-const tl = gsap.timeline({ paused: true });
-let path = document.querySelector("path");
-let spanBefore = CSSRulePlugin.getRule("#hamburger span::before");
-
-// Set initial states
-gsap.set(spanBefore, { background: "#000" });
-gsap.set(".menu", { visibility: "hidden" });
-
-// Function to toggle the menu
-function revealMenu() {
-    
-
-    const hamburger = document.getElementById("hamburger");
-    const toggleBtn = $(".cover");
-
-    toggleBtn.onclick = function () {
-      console.log("toggle");
-        // hamburger.classList.toggle("active");
-        tl.reversed(!tl.reversed());
-    };
-}
-
-// Function to reveal menu items
-function revealMenuItems() {
-    const start = "M0 502S175 272 500 272s500 230 500 230V0H0Z";
-    const end = "M0 1005S175, 995, 500, 995s500, 5, 500, 5V0H0Z";
-
-    const power2 = "power2.inOut";
-    const power4 = "power4.inOut";
-
-    // tl.to("#hamburger", {
-    //     duration: 1.25,
-    //     marginTop: "-5px",
-    //     x: -40,
-    //     y: 40,
-    //     ease: power4,
-    // });
-
-    // tl.to("#hamburger span", {
-    //     duration: 1,
-    //     background: "#e2e2dc",
-    //     ease: power2,
-    // }, "<");
-
-    tl.to(spanBefore, {
-        duration: 1,
-        background: "#e2e2dc",
-        ease: power2,
-    }, "<");
-
-    // tl.to(".btn-outline", {
-    //     duration: 1.25,
-    //     x: -40,
-    //     y: 40,
-    //     width: "140px",
-    //     height: "140px",
-    //     border: "1px solid #e2e2dc",
-    //     ease: power4,
-    // }, "<");
-
-    tl.to(path, {
-        duration: 0.8,
-        attr: { d: start },
-        ease: power2,
-    }).to(path, {
-        duration: 0.8,
-        attr: { d: end },
-        ease: power2,
-    }, "-=0.5");
-
-    tl.to(".menu", {
-        duration: 1,
-        visibility: "visible",
-    }, "-=0.5");
-
-    tl.to(".menu-item > a", {
-        duration: 1,
-        top: 0,
-        ease: "power3.out",
-        stagger: { amount: 0.5 },
-    }, "-=1").reverse();
-}
-
-// Initialize the menu reveal functionality
-revealMenu();
-
-}
-nav();
+navbar();
 
 // code by sohel **--- page1 animation ----**
-//page 1 
+//page 1
 
-gsap.to('.page1',{
-  width: '100%',
-  height: '100%',
-  opacity: .1,
+gsap.to(".page1", {
+  width: "100%",
+  height: "100%",
+  opacity: 0.1,
   scrollTrigger: {
     trigger: ".page1",
     scroller: "#main",
@@ -300,4 +255,107 @@ gsap.to('.page1',{
     // markers: true,
     scrub: 1,
   },
-})
+});
+
+const makeParticals = (e) => {
+  const canvas = document.querySelector("#make-partical");
+  const ctx = canvas.getContext("2d");
+  const responsive = () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  };
+  responsive();
+  const particleArray = [];
+  let hue = 40;
+  window.addEventListener("resize", () => {
+    responsive();
+    // drawCircles();
+  });
+  const mouse = {
+    x: undefined,
+    y: undefined,
+  };
+  canvas.addEventListener("click", (c) => {
+    mouse.x = c.clientX;
+    mouse.y = c.clientY;
+    // drawCircles();
+  });
+  canvas.addEventListener("mousemove", (c) => {
+    mouse.x = c.clientX;
+    mouse.y = c.clientY;
+    // drawCircles();
+    for (let i = 0; i < 1; i++) {
+      particleArray.push(new particle());
+    }
+  });
+  // const drawCircles = () => {
+  //     ctx.fillStyle = 'greenyellow';
+  // ctx.beginPath();
+  // ctx.arc(mouse.x, mouse.y, 20, 0, Math.PI * 2);
+  // ctx.fill();
+  // };
+
+  class particle {
+    constructor() {
+      this.x = mouse.x;
+      this.y = mouse.y;
+      this.size = Math.random() * 10 + 1;
+      this.speedX = Math.random() * 3 - 1.5;
+      this.speedY = Math.random() * 3 - 1.5;
+      this.color = `hsl( ${hue}, 100%, 50% )`;
+    }
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if (this.size > 0.2) this.size -= 0.2;
+    }
+    draw() {
+      ctx.fillStyle = this.color;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  // const init = () => {
+  //     for (let i = 0; i < 100; i++) {
+  //         particleArray.push(new particle());
+  //     }
+  // };
+  // init();
+
+  const handleParticles = () => {
+    for (let i = 0; i < particleArray.length; i++) {
+      particleArray[i].update();
+      particleArray[i].draw();
+      for (let j = 0; j < particleArray.length; j++) {
+        const dx = particleArray[i].x - particleArray[j].x;
+        const dy = particleArray[i].y - particleArray[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 100) {
+          ctx.beginPath();
+          ctx.strokeStyle = particleArray[i].color;
+          ctx.lineWidth = 0.2;
+          ctx.moveTo(particleArray[i].x, particleArray[i].y);
+          ctx.lineTo(particleArray[j].x, particleArray[j].y);
+          ctx.stroke();
+          ctx.closePath();
+        }
+      }
+      if (particleArray[i] <= 0.3) {
+        particleArray.splice(i, 1);
+        console.log(particleArray.length);
+        i--;
+      }
+    }
+  };
+
+  const animate = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    handleParticles();
+    hue += 0.5;
+    requestAnimationFrame(animate);
+  };
+  animate();
+};
+makeParticals();
