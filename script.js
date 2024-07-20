@@ -48,9 +48,7 @@ function locoScroll() {
 
 locoScroll();
 
-
-const loader = e => {
-
+const loader = (e) => {
   function clutterAnimation(element) {
     const htmlTag = document.querySelector(element);
     let clutter = "";
@@ -60,7 +58,7 @@ const loader = e => {
     htmlTag.innerHTML = clutter;
   }
   clutterAnimation(".l-text>h1");
-  
+
   const tl = gsap.timeline();
   tl.from(
     ".l-text>h1>span",
@@ -73,7 +71,7 @@ const loader = e => {
     },
     "a"
   );
-  
+
   tl.from(
     ".loader-img",
     {
@@ -83,7 +81,7 @@ const loader = e => {
     },
     "a"
   );
-  
+
   tl.to(
     ".loader-img",
     {
@@ -92,7 +90,7 @@ const loader = e => {
     },
     "b"
   );
-  
+
   tl.to(
     ".l-img2",
     {
@@ -100,7 +98,7 @@ const loader = e => {
     },
     "b"
   );
-  
+
   tl.to(
     ".loader-img",
     {
@@ -110,7 +108,7 @@ const loader = e => {
     },
     "c"
   );
-  
+
   tl.to(
     ".l-img3",
     {
@@ -119,7 +117,7 @@ const loader = e => {
     },
     "c"
   );
-  
+
   tl.to(
     ".loader-img",
     {
@@ -129,7 +127,7 @@ const loader = e => {
     },
     "d"
   );
-  
+
   tl.to(
     ".loader-overlay",
     {
@@ -138,7 +136,7 @@ const loader = e => {
     },
     "d"
   );
-  
+
   tl.to(
     ".loader-overlay,.l-img3,.l-img2,.l-img1",
     {
@@ -148,7 +146,7 @@ const loader = e => {
     },
     "e"
   );
-  
+
   tl.to(
     ".loader-img",
     {
@@ -157,7 +155,7 @@ const loader = e => {
     },
     "f"
   );
-  
+
   tl.to(
     ".l-text>h1>span",
     {
@@ -172,7 +170,7 @@ const loader = e => {
   tl.to(".loader-img", {
     opacity: 0,
   });
-  
+
   tl.to(
     ".loader",
     {
@@ -181,12 +179,8 @@ const loader = e => {
     },
     "f"
   );
-  
-  
-  
-}
+};
 loader();
-
 
 // Shery.mouseFollower({
 //   skew: true,
@@ -303,18 +297,63 @@ clut();
 
 // code by sneha **--- page1 animation ----**
 
-const page1 = e => {
+const page1 = (e) => {
   Shery.imageEffect("#img-container", {
     style: 2, //Select Style,
     gooey: true,
-    //   debug: true, // Debug Panel
-    config: { "resolutionXY": { "value": 100 }, "distortion": { "value": true }, "mode": { "value": -3 }, "mousemove": { "value": 0 }, "modeA": { "value": 1 }, "modeN": { "value": 0 }, "speed": { "value": 1, "range": [-500, 500], "rangep": [-10, 10] }, "frequency": { "value": 50, "range": [-800, 800], "rangep": [-50, 50] }, "angle": { "value": 0.5, "range": [0, 3.141592653589793] }, "waveFactor": { "value": 1.4, "range": [-3, 3] }, "color": { "value": 10212607 }, "pixelStrength": { "value": 3, "range": [-20, 100], "rangep": [-20, 20] }, "quality": { "value": 5, "range": [0, 10] }, "contrast": { "value": 1, "range": [-25, 25] }, "brightness": { "value": 1, "range": [-1, 25] }, "colorExposer": { "value": 0.18, "range": [-5, 5] }, "strength": { "value": 0.2, "range": [-40, 40], "rangep": [-5, 5] }, "exposer": { "value": 8, "range": [-100, 100] }, "zindex": { "value": 999 }, "aspect": { "value": 1.5472401939960634 }, "ignoreShapeAspect": { "value": true }, "shapePosition": { "value": { "x": 0, "y": 0 } }, "shapeScale": { "value": { "x": 0.5, "y": 0.5 } }, "shapeEdgeSoftness": { "value": 0, "range": [0, 0.5] }, "shapeRadius": { "value": 0, "range": [0, 2] }, "currentScroll": { "value": 0 }, "scrollLerp": { "value": 0.07 }, "gooey": { "value": true }, "infiniteGooey": { "value": true }, "growSize": { "value": 4, "range": [1, 15] }, "durationOut": { "value": 1, "range": [0.1, 5] }, "durationIn": { "value": 1.5, "range": [0.1, 5] }, "displaceAmount": { "value": 0.5 }, "masker": { "value": false }, "maskVal": { "value": 1, "range": [1, 5] }, "scrollType": { "value": 0 }, "geoVertex": { "range": [1, 64], "value": 1 }, "noEffectGooey": { "value": true }, "onMouse": { "value": 0 }, "noise_speed": { "value": 0.2, "range": [0, 10] }, "metaball": { "value": 0.2, "range": [0, 2], "_gsap": { "id": 8 } }, "discard_threshold": { "value": 0.5, "range": [0, 1] }, "antialias_threshold": { "value": 0, "range": [0, 0.1] }, "noise_height": { "value": 0.5, "range": [0, 2] }, "noise_scale": { "value": 10, "range": [0, 100] } },
+      debug: true, // Debug Panel
+    config: {
+      resolutionXY: { value: 100 },
+      distortion: { value: true },
+      mode: { value: -3 },
+      mousemove: { value: 0 },
+      modeA: { value: 1 },
+      modeN: { value: 0 },
+      speed: { value: 1, range: [-500, 500], rangep: [-10, 10] },
+      frequency: { value: 50, range: [-800, 800], rangep: [-50, 50] },
+      angle: { value: 0.5, range: [0, 3.141592653589793] },
+      waveFactor: { value: 1.4, range: [-3, 3] },
+      color: { value: 10212607 },
+      pixelStrength: { value: 3, range: [-20, 100], rangep: [-20, 20] },
+      quality: { value: 5, range: [0, 10] },
+      contrast: { value: 1, range: [-25, 25] },
+      brightness: { value: 1, range: [-1, 25] },
+      colorExposer: { value: 0.18, range: [-5, 5] },
+      strength: { value: 0.2, range: [-40, 40], rangep: [-5, 5] },
+      exposer: { value: 8, range: [-100, 100] },
+      zindex: { value: 999 },
+      aspect: { value: 1.5472401939960634 },
+      ignoreShapeAspect: { value: true },
+      shapePosition: { value: { x: 0, y: 0 } },
+      shapeScale: { value: { x: 0.5, y: 0.5 } },
+      shapeEdgeSoftness: { value: 0, range: [0, 0.5] },
+      shapeRadius: { value: 0, range: [0, 2] },
+      currentScroll: { value: 0 },
+      scrollLerp: { value: 0.07 },
+      gooey: { value: true },
+      infiniteGooey: { value: true },
+      growSize: { value: 4, range: [1, 15] },
+      durationOut: { value: 1, range: [0.1, 5] },
+      durationIn: { value: 1.5, range: [0.1, 5] },
+      displaceAmount: { value: 0.5 },
+      masker: { value: false },
+      maskVal: { value: 1, range: [1, 5] },
+      scrollType: { value: 0 },
+      geoVertex: { range: [1, 64], value: 1 },
+      noEffectGooey: { value: true },
+      onMouse: { value: 0 },
+      noise_speed: { value: 0.2, range: [0, 10] },
+      metaball: { value: 0.2, range: [0, 2], _gsap: { id: 8 } },
+      discard_threshold: { value: 0.5, range: [0, 1] },
+      antialias_threshold: { value: 0, range: [0, 0.1] },
+      noise_height: { value: 0.5, range: [0, 2] },
+      noise_scale: { value: 10, range: [0, 100] },
+    },
     //   preset: "./presets/wigglewobble.json",
-});
+  });
 
-
-//  Ensure GSAP is loaded before running this script
-document.addEventListener('DOMContentLoaded', function () {
+  //  Ensure GSAP is loaded before running this script
+  document.addEventListener("DOMContentLoaded", function () {
     var h2s = document.querySelectorAll("h2.elemtags");
     var pTags = document.querySelectorAll("p.elemtags"); // Select all p tags with class 'elemtags'
     var imgs = document.querySelectorAll("#img-container img"); // Select all images within #img-container
@@ -324,49 +363,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Add click event listener to each image
     imgs.forEach(function (img) {
-        img.addEventListener("click", function () {
-            if (index < h2s.length - 1 && index < pTags.length - 1) {
-                // Animate h2 tags
-                gsap.to(h2s[index], {
-                    top: "-=100%",
-                    ease: "power3.out",
-                    duration: 1,
-                    onComplete: function () {
-                        gsap.set(this._targets[0], { top: "100%" })
-                    }
-                });
-                gsap.to(pTags[index], {
-                    top: "-=100%",
-                    ease: "power3.out",
-                    duration: 1,
-                    onComplete: function () {
-                        gsap.set(this._targets[0], { top: "100%" })
-                    }
-                });
-                index++;
-                gsap.to(h2s[index], {
-                    top: "-=100%",
-                    ease: "power3.out",
-                    duration: 1
-                });
-                gsap.to(pTags[index], {
-                    top: "-=100%",
-                    ease: "power3.out",
-                    duration: 1
-                });
-            }
-        });
+      img.addEventListener("click", function () {
+        if (index < h2s.length - 1 && index < pTags.length - 1) {
+          // Animate h2 tags
+          gsap.to(h2s[index], {
+            top: "-=100%",
+            ease: "power3.out",
+            duration: 1,
+            onComplete: function () {
+              gsap.set(this._targets[0], { top: "100%" });
+            },
+          });
+          gsap.to(pTags[index], {
+            top: "-=100%",
+            ease: "power3.out",
+            duration: 1,
+            onComplete: function () {
+              gsap.set(this._targets[0], { top: "100%" });
+            },
+          });
+          index++;
+          gsap.to(h2s[index], {
+            top: "-=100%",
+            ease: "power3.out",
+            duration: 1,
+          });
+          gsap.to(pTags[index], {
+            top: "-=100%",
+            ease: "power3.out",
+            duration: 1,
+          });
+        }
+      });
     });
-});
-
-}
+  });
+};
 page1();
-
-
 
 // code by sneha **--- nav bar ----**
 
-const navbar = e => {
+const navbar = (e) => {
   const button = $(".button-three");
 
   const tim = gsap.timeline();
@@ -429,13 +465,13 @@ const navbar = e => {
       h2.addEventListener("mousemove", function () {
         gsap.to("nav", {
           backgroundColor: "rgb(18, 18, 18)",
-          duration: .3,
+          duration: 0.3,
         });
       });
       h2.addEventListener("mouseleave", function () {
         gsap.to("nav", {
           backgroundColor: "aliceblue",
-          duration: .3,
+          duration: 0.3,
         });
       });
     });
@@ -462,10 +498,8 @@ gsap.to(".page1", {
   },
 });
 
-
 // code by sohel **--- page2 video animation ----**
 //page 2
-
 
 gsap.to(".video-box", {
   width: "100%",
@@ -478,8 +512,6 @@ gsap.to(".video-box", {
     scrub: 1,
   },
 });
-
-
 
 // code by sohel **--- page3 partical-line animation ----**
 //page 3
@@ -587,60 +619,86 @@ const makeParticals = (e) => {
 };
 makeParticals();
 
-const forth = e => {
-  var tl = gsap.timeline({scrollTrigger : {
-    trigger : "#main",
-    start : "38% 50%",
-    end : "100% 50%",
-    pin : true, 
-    scrub : 2
-}})
+const forth = (e) => {
+  var tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#main",
+      start: "38% 50%",
+      end: "100% 50%",
+      pin: true,
+      scrub: 2,
+    },
+  });
 
-tl
-.to("#text", {
-    top : "-7%"
-}, "a")
+  tl.to(
+    "#text",
+    {
+      top: "-7%",
+    },
+    "a"
+  )
 
-.to("#cardone", {
-    top : "35%"
-}, "a")
+    .to(
+      "#cardone",
+      {
+        top: "35%",
+      },
+      "a"
+    )
 
-.to("#cardsec", {
-    top : "100%"
-}, "a")
+    .to(
+      "#cardsec",
+      {
+        top: "100%",
+      },
+      "a"
+    )
 
+    .to(
+      "#cardsec",
+      {
+        top: "42%",
+      },
+      "b"
+    )
 
+    .to(
+      "#cardone",
+      {
+        width: "65%",
+        height: "65vh",
+      },
+      "b"
+    )
 
+    .to(
+      "#cardthird",
+      {
+        top: "100%",
+      },
+      "b"
+    )
 
-.to("#cardsec", {
-    top : "42%"
-}, "b")
+    .to(
+      "#cardsec",
+      {
+        width: "70%",
+        height: "70vh",
+      },
+      "c"
+    )
 
-.to("#cardone", {
-    width : "65%",
-    height : "65vh"
-}, "b")
-
-.to("#cardthird", {
-    top : "100%"
-}, "b")
-
-
-
-
-.to("#cardsec", {
-    width : "70%",
-    height : "70vh"
-}, "c")
-
-.to("#cardthird", {
-    top : "50%"
-}, "c")
-
-}
+    .to(
+      "#cardthird",
+      {
+        top: "50%",
+      },
+      "c"
+    );
+};
 // forth()
 
-const containerThird = e => {
+const containerThird = (e) => {
   const t1 = gsap.timeline();
   t1.to(
     ".page2-elem1",
@@ -654,12 +712,12 @@ const containerThird = e => {
         end: "top 10%",
         //   pin: true,
         scrub: 1,
-          markers: true,
+        markers: true,
       },
     },
     0
   );
-  
+
   t1.to(
     ".page2-elem2",
     1,
@@ -672,12 +730,12 @@ const containerThird = e => {
         end: "top 10%",
         //   pin: true,
         scrub: 1,
-          markers: true,
+        markers: true,
       },
     },
     0
   );
-  
+
   t1.to(
     ".page2-elem4",
     1,
@@ -690,12 +748,12 @@ const containerThird = e => {
         end: "top 10%",
         //   pin: true,
         scrub: 1,
-          markers: true,
+        markers: true,
       },
     },
     0
   );
-  
+
   t1.to(
     ".page2-elem5,.page2-elem6",
     1,
@@ -708,15 +766,15 @@ const containerThird = e => {
         end: "top 10%",
         //   pin: true,
         scrub: 1,
-          markers: true,
+        markers: true,
       },
     },
     0
   );
-  
+
   t1.form(
     ".page2-elem3",
-  
+
     {
       height: "100vh",
       width: "100vw",
@@ -731,57 +789,84 @@ const containerThird = e => {
       },
     }
   );
-}
+};
 // containerThird();
 
-const containerFore = e => {
-  var tl = gsap.timeline({scrollTrigger : {
-    trigger : "#container-fore",
-    start : "38% 50%",
-    end : "100% 50%",
-    pin : true, 
-    scrub : 2
-}})
+const containerFore = (e) => {
+  var tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#container-fore",
+      start: "38% 50%",
+      end: "100% 50%",
+      pin: true,
+      scrub: 2,
+    },
+  });
 
-tl
-.to("#text", {
-    top : "-7%"
-}, "a")
+  tl.to(
+    "#text",
+    {
+      top: "-7%",
+    },
+    "a"
+  )
 
-.to("#cardone", {
-    top : "35%"
-}, "a")
+    .to(
+      "#cardone",
+      {
+        top: "35%",
+      },
+      "a"
+    )
 
-.to("#cardsec", {
-    top : "100%"
-}, "a")
+    .to(
+      "#cardsec",
+      {
+        top: "100%",
+      },
+      "a"
+    )
 
+    .to(
+      "#cardsec",
+      {
+        top: "42%",
+      },
+      "b"
+    )
 
+    .to(
+      "#cardone",
+      {
+        width: "65%",
+        height: "65vh",
+      },
+      "b"
+    )
 
+    .to(
+      "#cardthird",
+      {
+        top: "100%",
+      },
+      "b"
+    )
 
-.to("#cardsec", {
-    top : "42%"
-}, "b")
+    .to(
+      "#cardsec",
+      {
+        width: "70%",
+        height: "70vh",
+      },
+      "c"
+    )
 
-.to("#cardone", {
-    width : "65%",
-    height : "65vh"
-}, "b")
-
-.to("#cardthird", {
-    top : "100%"
-}, "b")
-
-
-
-
-.to("#cardsec", {
-    width : "70%",
-    height : "70vh"
-}, "c")
-
-.to("#cardthird", {
-    top : "50%"
-}, "c")
-}
+    .to(
+      "#cardthird",
+      {
+        top: "50%",
+      },
+      "c"
+    );
+};
 containerFore();

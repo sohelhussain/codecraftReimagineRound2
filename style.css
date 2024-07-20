@@ -234,6 +234,12 @@ body {
   border: none;
 }
 
+
+
+._canvas_container {
+  z-index: 99999999999 !important;
+}
+
 /* nav code  */
 
 .overlay {
