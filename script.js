@@ -48,6 +48,146 @@ function locoScroll() {
 
 locoScroll();
 
+
+const loader = e => {
+
+  function clutterAnimation(element) {
+    const htmlTag = document.querySelector(element);
+    let clutter = "";
+    htmlTag.textContent.split("").forEach((word) => {
+      clutter += `<span class="inline-block">${word}</span>`;
+    });
+    htmlTag.innerHTML = clutter;
+  }
+  clutterAnimation(".l-text>h1");
+  
+  const tl = gsap.timeline();
+  tl.from(
+    ".l-text>h1>span",
+    {
+      y: 150,
+      stagger: {
+        amount: -1.5,
+        from: "center",
+      },
+    },
+    "a"
+  );
+  
+  tl.from(
+    ".loader-img",
+    {
+      height: "0",
+      width: "0",
+      delay: 0.5,
+    },
+    "a"
+  );
+  
+  tl.to(
+    ".loader-img",
+    {
+      width: "65vh",
+      height: "40vh",
+    },
+    "b"
+  );
+  
+  tl.to(
+    ".l-img2",
+    {
+      opacity: 1,
+    },
+    "b"
+  );
+  
+  tl.to(
+    ".loader-img",
+    {
+      width: "35vh",
+      height: "45vh",
+      delay: 0.5,
+    },
+    "c"
+  );
+  
+  tl.to(
+    ".l-img3",
+    {
+      opacity: 1,
+      delay: 0.4,
+    },
+    "c"
+  );
+  
+  tl.to(
+    ".loader-img",
+    {
+      height: "55vh",
+      width: "45vh",
+      delay: 0.5,
+    },
+    "d"
+  );
+  
+  tl.to(
+    ".loader-overlay",
+    {
+      opacity: 1,
+      delay: 0.4,
+    },
+    "d"
+  );
+  
+  tl.to(
+    ".loader-overlay,.l-img3,.l-img2,.l-img1",
+    {
+      opacity: 0,
+      delay: -0.2,
+      duration: 0.2,
+    },
+    "e"
+  );
+  
+  tl.to(
+    ".loader-img",
+    {
+      height: "100vh",
+      width: "100%",
+    },
+    "f"
+  );
+  
+  tl.to(
+    ".l-text>h1>span",
+    {
+      y: -170,
+      stagger: {
+        amount: -0.1,
+        from: "center",
+      },
+    },
+    "f"
+  );
+  tl.to(".loader-img", {
+    opacity: 0,
+  });
+  
+  tl.to(
+    ".loader",
+    {
+      opacity: 0,
+      delay: 0.4,
+    },
+    "f"
+  );
+  
+  
+  
+}
+loader();
+
+
 // Shery.mouseFollower({
 //   skew: true,
 //   ease: "cubic-bezier(0.23, 1, 0.320, 1)",
@@ -254,8 +394,8 @@ gsap.to(".page1", {
     scroller: "#main",
     start: "-20% top",
     end: "50% 0%",
-    // markers: true,
-    scrub: 1,
+    markers: true,
+    // scrub: 1,
   },
 });
 
