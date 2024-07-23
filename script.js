@@ -3,14 +3,14 @@
 const $$ = (e) => document.createElement(e);
 const $ = (e) => document.querySelector(e);
 
-// const splitText = (element) => {
-//   const text = document.querySelector(element);
-//   let clutter = "";
-//   text.textContent.split("").forEach((word) => {
-//     clutter += `<span>${word}</span>`;
-//   });
-//   text.innerHTML = clutter;
-// };
+const splitText = (element) => {
+  const text = document.querySelector(element);
+  let clutter = "";
+  text.textContent.split("").forEach((word) => {
+    clutter += `<span>${word}</span>`;
+  });
+  text.innerHTML = clutter;
+};
 
 // changes by saify **--- locomotive ----**
 
@@ -293,7 +293,28 @@ function clut() {
     end: `100% top`,
   });
 }
-clut();
+// clut();
+
+const constFirtst = e => {
+  splitText('.win')
+  gsap.to(".win>span", {
+    opacity: 1,
+    stagger: {
+      amount: 1,
+    },
+    scrollTrigger: {
+      trigger: "#container-first",
+      scroller: "#main",
+      start: "0% 0%",
+      end: "100% 0%",
+      scrub: 1,
+      pin:true,
+      markers: true,
+    },
+});
+
+}
+constFirtst();
 
 // code by sneha **--- page1 animation ----**
 
@@ -469,18 +490,17 @@ navbar();
 // code by sohel **--- page1 animation ----**
 //page 1
 
-gsap.to(".page1", {
-  width: "100%",
-  height: "100%",
-  scrollTrigger: {
-    trigger: ".page1",
-    scroller: "#main",
-    start: "-20% top",
-    end: "50% 0%",
-    markers: true,
-    // scrub: 1,
-  },
-});
+// gsap.to("#leftpart", {
+//    display: "block",
+//   scrollTrigger: {
+//     trigger: ".page1",
+//     scroller: "#main",
+//     start: "40% top",
+//     end: "100% 0%",
+//     markers: true,
+//     scrub: 1,
+//   },
+// });
 
 // code by sohel **--- page2 video animation ----**
 //page 2
@@ -853,4 +873,4 @@ const containerFore = (e) => {
       "c"
     );
 };
-containerFore();
+// containerFore();
