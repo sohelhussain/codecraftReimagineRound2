@@ -293,7 +293,7 @@ function clut() {
     end: `100% top`,
   });
 }
-// clut();
+clut();
 
 // code by sneha **--- page1 animation ----**
 
@@ -472,7 +472,6 @@ navbar();
 gsap.to(".page1", {
   width: "100%",
   height: "100%",
-  opacity: 0.1,
   scrollTrigger: {
     trigger: ".page1",
     scroller: "#main",
