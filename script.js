@@ -542,7 +542,6 @@ canvas.addEventListener("click", (event) => {
   for(let i = 0; i < 10; i++) {
   particlesArray.push(new Particle());
   }
-  // drawCircle();
 });
 
 canvas.addEventListener("mousemove", (event) => {
@@ -551,7 +550,6 @@ canvas.addEventListener("mousemove", (event) => {
   for (let i = 0; i < 5; i++) {
     particlesArray.push(new Particle());
   }
-  // drawCircle();
 });
 console.log(particlesArray);
 
