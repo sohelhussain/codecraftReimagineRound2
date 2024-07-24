@@ -520,105 +520,80 @@ gsap.to(".video-box", {
 //page 3
 
 const makeParticals = (e) => {
-  const canvas = document.querySelector("#make-partical");
-  const ctx = canvas.getContext("2d");
-  const responsive = () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  };
+  const canvas = document.querySelector("#onCanvas");
+const ctx = canvas.getContext("2d");
+const particlesArray = [];
+const responsive = () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+};
+responsive();
+window.addEventListener("resize", () => {
   responsive();
-  const particleArray = [];
-  let hue = 40;
-  window.addEventListener("resize", () => {
-    responsive();
-    // drawCircles();
-  });
-  const mouse = {
-    x: undefined,
-    y: undefined,
-  };
-  canvas.addEventListener("click", (c) => {
-    mouse.x = c.clientX;
-    mouse.y = c.clientY;
-    // drawCircles();
-  });
-  canvas.addEventListener("mousemove", (c) => {
-    mouse.x = c.clientX;
-    mouse.y = c.clientY;
-    // drawCircles();
-    for (let i = 0; i < 1; i++) {
-      particleArray.push(new particle());
-    }
-  });
-  // const drawCircles = () => {
-  //     ctx.fillStyle = 'greenyellow';
-  // ctx.beginPath();
-  // ctx.arc(mouse.x, mouse.y, 20, 0, Math.PI * 2);
-  // ctx.fill();
-  // };
+});
 
-  class particle {
-    constructor() {
-      this.x = mouse.x;
-      this.y = mouse.y;
-      this.size = Math.random() * 10 + 1;
-      this.speedX = Math.random() * 3 - 1.5;
-      this.speedY = Math.random() * 3 - 1.5;
-      this.color = `hsl( ${hue}, 100%, 50% )`;
-    }
-    update() {
-      this.x += this.speedX;
-      this.y += this.speedY;
-      if (this.size > 0.2) this.size -= 0.2;
-    }
-    draw() {
-      ctx.fillStyle = this.color;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fill();
+const mouse = {
+  x: undefined,
+  y: undefined,
+};
+canvas.addEventListener("click", (event) => {
+  mouse.x = event.x;
+  mouse.y = event.y;
+  for(let i = 0; i < 10; i++) {
+  particlesArray.push(new Particle());
+  }
+  // drawCircle();
+});
+
+canvas.addEventListener("mousemove", (event) => {
+  mouse.x = event.x;
+  mouse.y = event.y;
+  for (let i = 0; i < 5; i++) {
+    particlesArray.push(new Particle());
+  }
+  // drawCircle();
+});
+console.log(particlesArray);
+
+class Particle {
+  constructor() {
+    this.x = mouse.x;
+    this.y = mouse.y;
+    this.size = Math.random() * 5 + 1;
+    this.speedX = Math.random() * 3 - 1.5;
+    this.speedY = Math.random() * 3 - 1.5;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.size > 0.2) this.size -= 0.1;
+  }
+  draw() {
+    ctx.fillStyle = "rgba(220, 20, 60, 0.978)";
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+const handleParticles = () => {
+  for (let i = 0; i < particlesArray.length; i++) {
+    particlesArray[i].update();
+    particlesArray[i].draw();
+    if (particlesArray[i].size <= 0.3) {
+      particlesArray.splice(i, 1);
+      i--;
     }
   }
+};
 
-  // const init = () => {
-  //     for (let i = 0; i < 100; i++) {
-  //         particleArray.push(new particle());
-  //     }
-  // };
-  // init();
-
-  const handleParticles = () => {
-    for (let i = 0; i < particleArray.length; i++) {
-      particleArray[i].update();
-      particleArray[i].draw();
-      for (let j = 0; j < particleArray.length; j++) {
-        const dx = particleArray[i].x - particleArray[j].x;
-        const dy = particleArray[i].y - particleArray[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 100) {
-          ctx.beginPath();
-          ctx.strokeStyle = particleArray[i].color;
-          ctx.lineWidth = 0.2;
-          ctx.moveTo(particleArray[i].x, particleArray[i].y);
-          ctx.lineTo(particleArray[j].x, particleArray[j].y);
-          ctx.stroke();
-          ctx.closePath();
-        }
-      }
-      if (particleArray[i] <= 0.3) {
-        particleArray.splice(i, 1);
-        console.log(particleArray.length);
-        i--;
-      }
-    }
-  };
-
-  const animate = () => {
+const animate = () => {
+    ctx.fillRect = 'rgba(0,0,0,0.1)'
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     handleParticles();
-    hue += 0.5;
-    requestAnimationFrame(animate);
-  };
-  animate();
+  requestAnimationFrame(animate);
+};
+animate();
+
 };
 // makeParticals();
 

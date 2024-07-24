@@ -27,6 +27,19 @@ body {
   src: url(/fonts/LibreBaskerville-Regular.ttf);
 }
 
+#onCanvas{
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* pointer-events: none; */
+  cursor: pointer;
+  z-index: 99999999999999999999;
+}
+
 #main {
   position: relative;
   width: 100%;
@@ -45,7 +58,7 @@ body {
   align-items: center;
   justify-content: center;
   color: white;
-  display: none;
+  /* display: none; */
 }
 
 .l-text {
@@ -116,7 +129,7 @@ body {
   /* background: linear-gradient(to bottom, #ffbdbf, #f9e4e5); */
   overflow-x: hidden;
   background-color: aliceblue;
-  display: none;
+  /* display: none; */
 }
 #canvas {
   width: 100vw;
@@ -402,7 +415,7 @@ nav span {
   display: flex;
   align-self: center;
   justify-content: center;
-  display: none;
+  /* display: none; */
 }
 .video-box {
   height: 100%;
@@ -425,7 +438,7 @@ nav span {
   width: 100%;
   position: relative;
   background-color: aliceblue;
-  display: none;
+  /* display: none; */
 }
 
 .page1 {
@@ -580,11 +593,9 @@ nav span {
 .page4 .cards .cards-left-img {
   width: 0%;
   height: 100%;
-  /* display: none; */
   -webkit-transition: ease-out 0.2s;
   -o-transition: ease-out 0.2s;
   transition: ease-out 0.2s;
-  /* background-color: aqua; */
 }
 
 .page4 .cards .cards-left-img>img {
@@ -786,6 +797,7 @@ footer {
   object-position: center;
 }
 .social-hed {
+  font-family: "cinzel";
   margin-bottom: 3vh;
 }
 .social-links-box {
@@ -797,6 +809,7 @@ footer {
 .social-links-box h1 {
   transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
   font-size: 1.8vw;
+  cursor: pointer;
 }
 .social-links-box:hover h1 {
   transform: translateY(-100%);
