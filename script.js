@@ -622,6 +622,8 @@ const makeParticals = (e) => {
 };
 // makeParticals();
 
+// code by harsh **--- swipper animation ----**
+
 
 function swipper() {
   var swiper = new Swiper(".mySwiper", {

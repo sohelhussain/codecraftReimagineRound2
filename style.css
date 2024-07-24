@@ -45,7 +45,7 @@ body {
   align-items: center;
   justify-content: center;
   color: white;
-  display: none;
+  /* display: none; */
 }
 
 .l-text {
