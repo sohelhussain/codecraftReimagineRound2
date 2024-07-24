@@ -293,10 +293,10 @@ function clut() {
     end: `100% top`,
   });
 }
-// clut();
+clut();
 
-const constFirtst = e => {
-  splitText('.win')
+const constFirtst = (e) => {
+  splitText(".win");
   gsap.to(".win>span", {
     opacity: 1,
     stagger: {
@@ -305,15 +305,14 @@ const constFirtst = e => {
     scrollTrigger: {
       trigger: "#container-first",
       scroller: "#main",
-      start: "0% 0%",
+      start: "-.2% 0%",
       end: "100% 0%",
       scrub: 1,
-      pin:true,
+      // pin:true,
       markers: true,
     },
-});
-
-}
+  });
+};
 constFirtst();
 
 // code by sneha **--- page1 animation ----**
@@ -508,7 +507,7 @@ navbar();
 gsap.to(".video-box", {
   width: "100%",
   scrollTrigger: {
-    trigger: "#conatainer-second",
+    // trigger: "#container-second",
     scroller: "#main",
     start: "200% 70%",
     end: "200% 0%",
@@ -623,254 +622,18 @@ const makeParticals = (e) => {
 };
 // makeParticals();
 
-const forth = (e) => {
-  var tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#main",
-      start: "38% 50%",
-      end: "100% 50%",
-      pin: true,
-      scrub: 2,
-    },
-  });
 
-  tl.to(
-    "#text",
-    {
-      top: "-7%",
-    },
-    "a"
-  )
-
-    .to(
-      "#cardone",
-      {
-        top: "35%",
+function swipper() {
+  var swiper = new Swiper(".mySwiper", {
+      direction: "vertical",
+      slidesPerView: 1,
+      spaceBetween: 30,
+      mousewheel: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
       },
-      "a"
-    )
+    });
+}
+swipper();
 
-    .to(
-      "#cardsec",
-      {
-        top: "100%",
-      },
-      "a"
-    )
-
-    .to(
-      "#cardsec",
-      {
-        top: "42%",
-      },
-      "b"
-    )
-
-    .to(
-      "#cardone",
-      {
-        width: "65%",
-        height: "65vh",
-      },
-      "b"
-    )
-
-    .to(
-      "#cardthird",
-      {
-        top: "100%",
-      },
-      "b"
-    )
-
-    .to(
-      "#cardsec",
-      {
-        width: "70%",
-        height: "70vh",
-      },
-      "c"
-    )
-
-    .to(
-      "#cardthird",
-      {
-        top: "50%",
-      },
-      "c"
-    );
-};
-// forth()
-
-const containerThird = (e) => {
-  const t1 = gsap.timeline();
-  t1.to(
-    ".page2-elem1",
-    1,
-    {
-      y: 190,
-      scrollTrigger: {
-        scroller: "#main",
-        trigger: ".page2-elem1",
-        start: "top 40%", // Adjust this value based on your layout
-        end: "top 10%",
-        //   pin: true,
-        scrub: 1,
-        markers: true,
-      },
-    },
-    0
-  );
-
-  t1.to(
-    ".page2-elem2",
-    1,
-    {
-      x: 190,
-      scrollTrigger: {
-        scroller: "#main",
-        trigger: ".page2-elem1",
-        start: "top 50%", // Adjust this value based on your layout
-        end: "top 10%",
-        //   pin: true,
-        scrub: 1,
-        markers: true,
-      },
-    },
-    0
-  );
-
-  t1.to(
-    ".page2-elem4",
-    1,
-    {
-      x: -190,
-      scrollTrigger: {
-        scroller: "#main",
-        trigger: ".page2-elem1",
-        start: "top 50%", // Adjust this value based on your layout
-        end: "top 10%",
-        //   pin: true,
-        scrub: 1,
-        markers: true,
-      },
-    },
-    0
-  );
-
-  t1.to(
-    ".page2-elem5,.page2-elem6",
-    1,
-    {
-      y: -190,
-      scrollTrigger: {
-        scroller: "#main",
-        trigger: ".page2-elem1",
-        start: "top 50%", // Adjust this value based on your layout
-        end: "top 10%",
-        //   pin: true,
-        scrub: 1,
-        markers: true,
-      },
-    },
-    0
-  );
-
-  t1.form(
-    ".page2-elem3",
-
-    {
-      height: "100vh",
-      width: "100vw",
-      scrollTrigger: {
-        scroller: "#main",
-        trigger: ".page2",
-        start: "top 0%", // Adjust this value based on your layout
-        end: "top -100%",
-        pin: true,
-        scrub: 1,
-        markers: true,
-      },
-    }
-  );
-};
-// containerThird();
-
-const containerFore = (e) => {
-  var tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#container-fore",
-      start: "38% 50%",
-      end: "100% 50%",
-      pin: true,
-      scrub: 2,
-    },
-  });
-
-  tl.to(
-    "#text",
-    {
-      top: "-7%",
-    },
-    "a"
-  )
-
-    .to(
-      "#cardone",
-      {
-        top: "35%",
-      },
-      "a"
-    )
-
-    .to(
-      "#cardsec",
-      {
-        top: "100%",
-      },
-      "a"
-    )
-
-    .to(
-      "#cardsec",
-      {
-        top: "42%",
-      },
-      "b"
-    )
-
-    .to(
-      "#cardone",
-      {
-        width: "65%",
-        height: "65vh",
-      },
-      "b"
-    )
-
-    .to(
-      "#cardthird",
-      {
-        top: "100%",
-      },
-      "b"
-    )
-
-    .to(
-      "#cardsec",
-      {
-        width: "70%",
-        height: "70vh",
-      },
-      "c"
-    )
-
-    .to(
-      "#cardthird",
-      {
-        top: "50%",
-      },
-      "c"
-    );
-};
-// containerFore();
