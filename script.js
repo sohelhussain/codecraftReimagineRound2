@@ -309,7 +309,7 @@ const constFirtst = (e) => {
       end: "100% 0%",
       scrub: 1,
       // pin:true,
-      markers: true,
+      // markers: true,
     },
   });
 };
@@ -624,18 +624,16 @@ const makeParticals = (e) => {
 
 // code by harsh **--- swipper animation ----**
 
-
 function swipper() {
   var swiper = new Swiper(".mySwiper", {
-      direction: "vertical",
-      slidesPerView: 1,
-      spaceBetween: 30,
-      mousewheel: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-    });
+    direction: "vertical",
+    slidesPerView: 1,
+    spaceBetween: 30,
+    mousewheel: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
 }
 swipper();
-
