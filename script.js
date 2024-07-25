@@ -182,11 +182,11 @@ const loader = (e) => {
 };
 loader();
 
-// Shery.mouseFollower({
-//   skew: true,
-//   ease: "cubic-bezier(0.23, 1, 0.320, 1)",
-//   duration: 1,
-// });
+Shery.mouseFollower({
+  skew: true,
+  ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+  duration: 1,
+});
 
 // code by sohel **--- hero text animation ----**
 
@@ -308,8 +308,6 @@ const constFirtst = (e) => {
       start: "-.2% 0%",
       end: "100% 0%",
       scrub: 1,
-      // pin:true,
-      // markers: true,
     },
   });
 };
@@ -486,20 +484,6 @@ const navbar = (e) => {
 
 navbar();
 
-// code by sohel **--- page1 animation ----**
-//page 1
-
-// gsap.to("#leftpart", {
-//    display: "block",
-//   scrollTrigger: {
-//     trigger: ".page1",
-//     scroller: "#main",
-//     start: "40% top",
-//     end: "100% 0%",
-//     markers: true,
-//     scrub: 1,
-//   },
-// });
 
 // code by sohel **--- page2 video animation ----**
 //page 2
