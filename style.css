@@ -23,16 +23,16 @@ body {
 }
 
 @font-face {
-  font-family: 'libre';
+  font-family: "libre";
   src: url(/fonts/LibreBaskerville-Regular.ttf);
 }
 
-#onCanvas{
+.onCanvas {
   width: 100%;
   height: 100%;
-  display: none;
+  /* display: none; */
   background-color: transparent;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   /* pointer-events: none; */
@@ -137,8 +137,8 @@ body {
   position: absolute;
 }
 
-.upper-box h1{
-  font-family: 'cinzel';
+.upper-box h1 {
+  font-family: "cinzel";
   font-size: 5vw;
   line-height: 1;
   position: relative;
@@ -149,23 +149,23 @@ body {
   margin-left: 3vw;
   color: rgb(18, 18, 18);
 }
-.upper-box h1 .line{
+.upper-box h1 .line {
   width: 15vw;
-  height: .1vw;
+  height: 0.1vw;
   border-radius: 20%;
   position: absolute;
   top: 72%;
   left: 65%;
   background-color: rgb(18, 18, 18);
 }
-.win{
+.win {
   margin-left: 40%;
   margin-top: 5%;
   width: 60%;
 }
-.win>span{
+.win > span {
   font-size: 2vw;
-  font-family: 'libre';
+  font-family: "libre";
   opacity: 0.3;
   color: rgb(18, 18, 18);
 }
@@ -424,13 +424,9 @@ nav span {
   object-fit: cover;
 }
 
-
-
-
 /* ------------------container third-------------------- */
 
-
- #container-third {
+#container-third {
   height: 100vh;
   width: 100%;
   position: relative;
@@ -539,14 +535,14 @@ nav span {
   margin-top: 2vw;
   border: none;
   transition: all ease 0.3s;
-  font-family: 'libre';
+  font-family: "libre";
   cursor: pointer;
 }
 
 #rightpart button:hover {
   /* background-color: rgb(68, 65, 31); */
   /* background-color: #f7e6ca; */
-  background-color: #7B6B63;
+  background-color: #7b6b63;
 }
 
 /* -----------------------.page4--------------------- */
@@ -556,7 +552,8 @@ nav span {
   padding-top: 5vw;
   /* background-color: #F7F7EE; */
   background-color: aliceblue;
-  display: none;
+  /* display: none; */
+  position: relative;
 }
 
 .page4 .cards {
@@ -591,7 +588,7 @@ nav span {
   transition: ease-out 0.2s;
 }
 
-.page4 .cards .cards-left-img>img {
+.page4 .cards .cards-left-img > img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -663,12 +660,10 @@ nav span {
   display: none;
   /* color: #434B34; */
   color: aliceblue;
-
 }
 
 .page4 .cards:hover .cards-left-img {
   width: 35%;
-
 }
 
 .page4 .cards:hover {
@@ -739,22 +734,21 @@ nav span {
   object-fit: cover;
 }
 
-#swipper-div img{
+#swipper-div img {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
-
-
 
 /* --------------*****---------footer----------------- */
 footer {
   width: 100%;
   height: 60vh;
   /* background-color: rgb(44, 129, 203); */
-  background-color: #CEDBE7;
+  background-color: #cedbe7;
+  position: relative;
   color: rgb(18, 18, 18);
-  font-family: 'libre';
+  font-family: "libre";
   /* padding-top: 15vh; */
   padding: 2vw 2.5vw;
 }
@@ -765,7 +759,7 @@ footer {
   margin-left: 5%;
   background-color: rgb(18, 18, 18);
 }
-.social-cover{
+.social-cover {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -778,13 +772,13 @@ footer {
   align-items: center;
   justify-content: space-between;
 }
-.imag-box{
+.imag-box {
   width: 300px;
-  height: 300px;  
+  height: 300px;
   margin-top: 5%;
   margin-right: 5%;
 }
-.imag-box img{
+.imag-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -812,13 +806,7 @@ footer {
   margin-top: 3vh;
 }
 
-
-
-
-
-@media (max-width:640px) {
-
-
+@media (max-width: 640px) {
   nav {
     width: 100%;
     height: auto;
@@ -829,27 +817,26 @@ footer {
   }
 
   .upp-box {
-    font-size: 8vw; 
+    font-size: 8vw;
     margin-left: 10%;
     margin-top: 5%;
   }
 
   .upp-box:nth-child(odd) {
-    margin-left: 10%; 
+    margin-left: 10%;
   }
 
   nav .elem {
-    margin: 20px 0; 
+    margin: 20px 0;
   }
 
   nav .elem:nth-child(3) {
-    align-items: start; 
+    align-items: start;
   }
 
   nav span {
     font-size: 10vw;
   }
-
 
   #container-first {
     width: 100vw;
@@ -858,7 +845,6 @@ footer {
     overflow-x: hidden;
     background-color: aliceblue;
   }
-
 
   .upper-box h1 {
     /* font-family: 'cinzel'; */
@@ -871,29 +857,28 @@ footer {
     margin-top: 8vw;
     margin-left: 3vw;
     color: rgb(18, 18, 18); */
-
   }
-  
+
   .upper-box h1 .line {
     width: 15vw;
-    height: .1vw;
+    height: 0.1vw;
     border-radius: 20%;
     position: absolute;
     top: 72%;
     left: 75%;
     background-color: rgb(18, 18, 18);
   }
-  
+
   .win {
     margin-left: 8%;
     margin-top: 5%;
     width: 80%;
     /* background-color: red; */
   }
-  
-  .win>span {
+
+  .win > span {
     font-size: 5vw;
-    font-family: 'libre';
+    font-family: "libre";
     opacity: 0.5;
     color: rgb(18, 18, 18);
     line-height: 1.7;
@@ -905,221 +890,213 @@ footer {
     background-color: aliceblue;
     /* background-color: red; */
   }
-  
-    #main-container {
-      flex-direction: column;
-      overflow: hidden;
-    }
-  
-    #leftpart {
-      position: relative;
-      height: 70%;
-      width: 100%;
-      /* background-color: red; */
-      /* display: none; */
-    }
-  
-  
-    #rightpart {
-      height: 30%;
-      width: 100%;
-      /* background-color: yellow; */
-    }
-  
-    #img-container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      height: 70vh;
-      width: 95%;
-      background-color: black;
-      /* display: none; */
-      border-radius: 30px;
-      overflow: hidden;
-    }
-  
-  
-    #rightpart .elem1 {
-      position: relative;
-      height: 9vw;
-      width: 70vw;
-      overflow: hidden;
-      margin-bottom: -1vw;
-    }
-  
-    #rightpart button {
-      /* background-color: rgb(128, 118, 35) ; */
-      color: aliceblue;
-      background-color: rgb(18, 18, 18);
-      border-radius: 5px;
-      padding: 1vw 2vw;
-      font-size: 2.7vw;
-      letter-spacing: 1.5px;
-      margin-top: 2vw;
-      border: none;
-      transition: all ease 0.3s;
-      font-family: 'libre';
-      cursor: pointer;
-    }
-  
-  
-  
-  
-  
-  
-    /* ---------------------------p4----------------------------------- */
-  
-    .page4 {
-      width: 100%;
-      min-height: 110vh;
-      padding-top: 5vw;
-      background-color: #F7F7EE;
-    }
-  
-    .page4 .cards {
-      width: 90%;
-      height: 20vh;
-      margin-left: 5vw;
-      cursor: pointer;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      border: 1px solid #434b3480;
-    }
-  
-    .page4 .cards:nth-child(1) {
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      overflow: hidden;
-    }
-  
-    .page4 .cards:nth-last-child(1) {
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      overflow: hidden;
-    }
-  
-    .page4 .cards .cards-left-img {
-      width: 0%;
-      height: 100%;
-      -webkit-transition: ease-out 0.2s;
-      -o-transition: ease-out 0.2s;
-      transition: ease-out 0.2s;
-    }
-  
-    .page4 .cards .cards-left-img>img {
-      width: 100%;
-      height: 100%;
-      -o-object-fit: cover;
-      object-fit: cover;
-      -o-object-position: center;
-      object-position: center;
-    }
-  
-    .page4 .cards .information-feature {
-      width: 100%;
-      height: 100%;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
-    }
-  
-    .page4 .cards .information-feature .cards-text-feature {
-      width: 55%;
-      height: 100%;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      gap: 1.5vw;
-      padding-left: 3vw;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-    }
-  
-    .page4 .cards .information-feature .cards-text-feature h2 {
-      font-family: "pp woodland";
-      color: #434B34;
-      font-size: 5.4vw;
-    }
-  
-    .page4 .cards .information-feature .cards-text-feature p {
-      font-family: "gilroy";
-      font-size: 2.9vw;
-      color: #434B34;
-    }
-  
-    .page4 .cards .information-feature .cards-number {
-      margin-right: 3vw;
-      margin-top: 4vw;
-      background-color: #434B34;
-      color: white;
-      padding: 0.6vw 1.8vw;
-      font-family: "gilroy";
-      font-weight: 800;
-      border-radius: 20px;
-      border: none;
-      font-size: 1.5vw;
-    }
-  
-    .page4 .cards .information-feature .cards-number i {
-      display: none;
-      color: #434B34;
-      font-size: 1.5vw;
-    }
-  
-    .page4 .cards:hover .cards-left-img {
-      width: 35%;
-  
-    }
-  
-    .page4 .cards:hover {
-      background-color: #434B34;
-    }
-  
-    .page4 .cards:hover .information-feature .cards-text-feature h2 {
-      color: #E3E3C4;
-    }
-  
-    .page4 .cards:hover .information-feature .cards-text-feature p {
-      color: #ffffff;
-    }
-  
-    .page4 .cards:hover .cards-number {
-      background-color: white;
-    }
-  
-    .page4 .cards:hover .information-feature .cards-text-feature {
-      width: 75%;
-    }
-  
-    .page4 .cards:hover .information-feature .cards-number h4 {
-      display: none;
-    }
-  
-    .page4 .cards:hover .information-feature .cards-number i {
-      display: initial;
-      font-size: 1.4vw;
-    }
-    
+
+  #main-container {
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  #leftpart {
+    position: relative;
+    height: 70%;
+    width: 100%;
+    /* background-color: red; */
+    /* display: none; */
+  }
+
+  #rightpart {
+    height: 30%;
+    width: 100%;
+    /* background-color: yellow; */
+  }
+
+  #img-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 70vh;
+    width: 95%;
+    background-color: black;
+    /* display: none; */
+    border-radius: 30px;
+    overflow: hidden;
+  }
+
+  #rightpart .elem1 {
+    position: relative;
+    height: 9vw;
+    width: 70vw;
+    overflow: hidden;
+    margin-bottom: -1vw;
+  }
+
+  #rightpart button {
+    /* background-color: rgb(128, 118, 35) ; */
+    color: aliceblue;
+    background-color: rgb(18, 18, 18);
+    border-radius: 5px;
+    padding: 1vw 2vw;
+    font-size: 2.7vw;
+    letter-spacing: 1.5px;
+    margin-top: 2vw;
+    border: none;
+    transition: all ease 0.3s;
+    font-family: "libre";
+    cursor: pointer;
+  }
+
+  /* ---------------------------p4----------------------------------- */
+
+  .page4 {
+    width: 100%;
+    min-height: 110vh;
+    padding-top: 5vw;
+    background-color: #f7f7ee;
+  }
+
+  .page4 .cards {
+    width: 90%;
+    height: 20vh;
+    margin-left: 5vw;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border: 1px solid #434b3480;
+  }
+
+  .page4 .cards:nth-child(1) {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+  }
+
+  .page4 .cards:nth-last-child(1) {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+  }
+
+  .page4 .cards .cards-left-img {
+    width: 0%;
+    height: 100%;
+    -webkit-transition: ease-out 0.2s;
+    -o-transition: ease-out 0.2s;
+    transition: ease-out 0.2s;
+  }
+
+  .page4 .cards .cards-left-img > img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center;
+  }
+
+  .page4 .cards .information-feature {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+
+  .page4 .cards .information-feature .cards-text-feature {
+    width: 55%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 1.5vw;
+    padding-left: 3vw;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  .page4 .cards .information-feature .cards-text-feature h2 {
+    font-family: "pp woodland";
+    color: #434b34;
+    font-size: 5.4vw;
+  }
+
+  .page4 .cards .information-feature .cards-text-feature p {
+    font-family: "gilroy";
+    font-size: 2.9vw;
+    color: #434b34;
+  }
+
+  .page4 .cards .information-feature .cards-number {
+    margin-right: 3vw;
+    margin-top: 4vw;
+    background-color: #434b34;
+    color: white;
+    padding: 0.6vw 1.8vw;
+    font-family: "gilroy";
+    font-weight: 800;
+    border-radius: 20px;
+    border: none;
+    font-size: 1.5vw;
+  }
+
+  .page4 .cards .information-feature .cards-number i {
+    display: none;
+    color: #434b34;
+    font-size: 1.5vw;
+  }
+
+  .page4 .cards:hover .cards-left-img {
+    width: 35%;
+  }
+
+  .page4 .cards:hover {
+    background-color: #434b34;
+  }
+
+  .page4 .cards:hover .information-feature .cards-text-feature h2 {
+    color: #e3e3c4;
+  }
+
+  .page4 .cards:hover .information-feature .cards-text-feature p {
+    color: #ffffff;
+  }
+
+  .page4 .cards:hover .cards-number {
+    background-color: white;
+  }
+
+  .page4 .cards:hover .information-feature .cards-text-feature {
+    width: 75%;
+  }
+
+  .page4 .cards:hover .information-feature .cards-number h4 {
+    display: none;
+  }
+
+  .page4 .cards:hover .information-feature .cards-number i {
+    display: initial;
+    font-size: 1.4vw;
+  }
+
   footer {
     height: 60vh;
     padding: 4vw 5vw;
   }
 
   .footer-up-line {
-    margin-top: 20px; 
+    margin-top: 20px;
   }
 
   .social-cover {
@@ -1128,7 +1105,7 @@ footer {
   }
 
   .social {
-    width: 100%; 
+    width: 100%;
     margin-top: 5vh;
   }
 
@@ -1141,7 +1118,6 @@ footer {
 
   .social-links-box {
     height: 10vw;
-
   }
 
   .social-links-box h1 {
@@ -1149,6 +1125,6 @@ footer {
   }
 
   .last-text {
-    margin-top: 2vh; 
+    margin-top: 2vh;
   }
 }

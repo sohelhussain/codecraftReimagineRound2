@@ -520,7 +520,7 @@ gsap.to(".video-box", {
 //page 3
 
 const makeParticals = (e) => {
-  const canvas = document.querySelector("#onCanvas");
+  const canvas = document.querySelector(".onCanvas");
 const ctx = canvas.getContext("2d");
 const particlesArray = [];
 const responsive = () => {
@@ -593,7 +593,7 @@ const animate = () => {
 animate();
 
 };
-// makeParticals();
+makeParticals();
 
 // code by harsh **--- swipper animation ----**
 
