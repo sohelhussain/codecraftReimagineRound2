@@ -740,7 +740,7 @@ footer {
   width: fit-content;
   height: 2.3vw;
   overflow: hidden;
-  margin-bottom: -1vh;
+  margin-bottom: -.5vh;
 }
 .social-links-box h1 {
   transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
